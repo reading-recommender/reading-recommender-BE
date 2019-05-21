@@ -1,10 +1,10 @@
 const express = require('express');
 const knex = require('knex');
 const cors = require('cors');
-const jwt = require('jwt');
+const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
-const knexConfig = require('./knexfile');
+const knexConfig = require('../knexfile');
 const db = knex(knexConfig.development);
 
 const server = express()
@@ -24,13 +24,11 @@ server.post('/api/signup', (req, res) => {
     })
 })
 
+const secret = 'remove this later'
 function generateToken(user) {
     const payload = {
         subject: user.id,
         username: user.username,
-    }
-    const secret ={
-        secret: process.env.SECRET
     }
     const options = {
         expiresIn: '1d'
