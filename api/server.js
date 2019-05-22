@@ -1,11 +1,10 @@
 const express = require('express');
-const knex = require('knex');
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
-const knexConfig = require('../knexfile');
-const db = knex(knexConfig.development);
+const db = require('../database/dbConfig');
+const getBookRecommendation = require('../helpers/getBookPrediction');
 
 const server = express()
 
@@ -53,4 +52,38 @@ server.post('/api/login', (req, res) => {
     })
 })
 
+server.post("/recommend", async (req, res) => {
+    const {
+        q1,
+        q2,
+        q3,
+        q4,
+        q5,
+        q6
+    } = req.body;
+  
+    const answers = {
+     q1,
+     q2,
+     q3,
+     q4,
+     q5,
+     q6
+    };
+
+    const recommendation = await getBookRecommendation(answers);
+        try{
+            if (prediction) {
+              res.status(200).json({
+                ...recommendation,
+              });
+            } else {
+              throw "Please answer all the questions";
+            }
+        } catch (error) {
+      res.status(500).json({
+        message: "Error recommending book"
+      });
+    }
+  });
 module.exports = server;
