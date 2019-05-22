@@ -73,7 +73,7 @@ server.post("/recommend", async (req, res) => {
 
     const recommendation = await getBookRecommendation(answers);
         try{
-            if (prediction) {
+            if (recommendation) {
               res.status(200).json({
                 ...recommendation,
               });
