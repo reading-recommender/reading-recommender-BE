@@ -15,6 +15,7 @@ const userExists = async (email) => {
                 output = false
             }
         })
+        // if user database can't be searched
         .catch(() => {
             throw "System could not search for users"
         })
