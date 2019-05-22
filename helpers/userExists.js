@@ -1,14 +1,12 @@
 const db = require('../database/dbConfig');
 
-const userExists = async (email) => {
+const userExists = async (username) => {
     let output;
-    // formats added emails to be lowercase
-    let formattedEmail = email.toLowercase()
 
     await db('users')
-        .where({email: formattedEmail})
+        .where({username})
         .then(user => {
-            // denotes if email exists
+            // denotes if username exists
             if(user.length){
                 output = true
             } else {
