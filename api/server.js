@@ -19,7 +19,7 @@ server.post('/api/signup', (req, res) => {
     db('users')
     .insert(user)
     .then(user => {
-        res.status(201).json(user)
+        res.status(201).json({message: 'User is signed up!'})
     })
 })
 
@@ -45,7 +45,7 @@ server.post('/api/login', (req, res) => {
         if(user && bcrypt.compareSync(password, user.password)) {
             const token = generateToken(user);
 
-            res.status(201).json({token})
+            res.status(201).json({token, message: 'User is logged in!'})
         } else {
             res.status(401).send('Invalid credentials')
         }
