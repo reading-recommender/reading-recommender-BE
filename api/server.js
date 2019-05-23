@@ -54,21 +54,21 @@ server.post('/api/login', (req, res) => {
 
 server.post("/recommend", async (req, res) => {
     const {
-        q1,
-        q2,
-        q3,
-        q4,
-        q5,
-        q6
+      Q1,
+      Q2,
+      Q3,
+      Q4,
+      Q5,
+      Q6
     } = req.body;
   
     const answers = {
-     q1,
-     q2,
-     q3,
-     q4,
-     q5,
-     q6
+      Q1,
+      Q2,
+      Q3,
+      Q4,
+      Q5,
+      Q6
     };
 
     const recommendation = await getBookRecommendation(answers);
