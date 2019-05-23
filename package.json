@@ -13,5 +13,8 @@
   "scripts": {
     "start": "node index.js",
     "server": "nodemon index.js"
+  },
+  "devDependencies": {
+    "heroku": "^7.24.4"
   }
 }
