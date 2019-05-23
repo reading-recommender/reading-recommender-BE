@@ -3,6 +3,7 @@ const getBookRecommendation = require('../helpers/getBookRecommendation');
 
 const router = express.Router();
 
+// takes in answers (as string) - returns recommendation based on machine learning model
 router.post("/recommend", async (req, res) => {
     const {
       Q1,
@@ -22,6 +23,7 @@ router.post("/recommend", async (req, res) => {
       Q6
     };
 
+    // checks that all questions are answered
     const recommendation = await getBookRecommendation(answers);
         try{
             if (recommendation) {
