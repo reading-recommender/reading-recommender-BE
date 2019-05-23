@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
 const db = require('../database/dbConfig');
-const getBookRecommendation = require('../helpers/getBookPrediction');
+const getBookRecommendation = require('../helpers/getBookRecommendation');
 
 const server = express()
 
