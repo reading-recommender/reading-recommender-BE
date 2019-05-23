@@ -4,7 +4,7 @@ const {register, login}  = require('../helpers/usersAuthModel');
 const router = express.Router();
 
 // takes in username, password - responds with success message or conditional error message
-router.post('/api/signup', async (req, res) => {
+router.post('/signup', async (req, res) => {
     let user = req.body
 
     // creates required fields
@@ -33,7 +33,7 @@ router.post('/api/signup', async (req, res) => {
 });
 
 // takes in username, password - responds with success message (or conditional error) and token
-router.post('/api/login', async (req, res) => {
+router.post('/login', async (req, res) => {
     let {username, password} = req.body
 
     // authenticate user if username and password is correct
