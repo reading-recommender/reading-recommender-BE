@@ -11,7 +11,7 @@
     "superagent": "^5.0.5"
   },
   "scripts": {
-    "start": "knex migrate:latest && knex seed:run && node index.js",
+    "start": "node index.js",
     "server": "nodemon index.js"
   },
   "devDependencies": {
