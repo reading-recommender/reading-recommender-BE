@@ -3,8 +3,8 @@ const cors = require('cors');
 
 const server = express();
 
-const userAuth = require('./authRouter');
-const bookRecommendation = require('./recommendationRouter')
+const userAuth = require('./routers/authRouter');
+const bookRecommendation = require('./routers/recommendationRouter');
 
 server.use(express.json());
 server.use(cors());
