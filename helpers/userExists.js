@@ -20,4 +20,4 @@ const userExists = async (username) => {
     return output;
 };
 
-modules.export= userExists;
+module.exports = userExists;
