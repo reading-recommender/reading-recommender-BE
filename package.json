@@ -4,14 +4,23 @@
     "cors": "^2.8.5",
     "dotenv": "^8.0.0",
     "express": "^4.17.0",
+    "jest": "^24.8.0",
     "jsonwebtoken": "^8.5.1",
     "knex": "^0.16.5",
     "nodemon": "^1.19.0",
     "sqlite3": "^4.0.8",
-    "superagent": "^5.0.5"
+    "superagent": "^5.0.5",
+    "supertest": "^4.0.2"
+  },
+  "jest": {
+    "testEnvironment": "node"
   },
   "scripts": {
-    "start": "node index.js",
-    "server": "nodemon index.js"
+    "start": "knex migrate:latest && knex seed:run && node index.js",
+    "server": "nodemon index.js",
+    "test": "jest --watch --verbose"
+  },
+  "devDependencies": {
+    "heroku": "^7.24.4"
   }
 }

@@ -3,12 +3,12 @@ const api = 'https://evening-everglades-47925.herokuapp.com/api';
 
 
 const getBookPrediction = async ({
-  q1,
-  q2,
-  q3,
-  q4,
-  q5,
-  q6
+  Q1,
+  Q2,
+  Q3,
+  Q4,
+  Q5,
+  Q6
 }) => {
   let result;
   let error;
@@ -16,12 +16,12 @@ const getBookPrediction = async ({
   await superagent
     .post(api)
     .send({
-      q1,
-      q2,
-      q3,
-      q4,
-      q5,
-      q6
+      Q1,
+      Q2,
+      Q3,
+      Q4,
+      Q5,
+      Q6
     })
     .then(res => {
       result = res.body;
