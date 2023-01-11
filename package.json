@@ -6,7 +6,7 @@
     "express": "^4.17.0",
     "jest": "^24.8.0",
     "jsonwebtoken": "^8.5.1",
-    "knex": "^0.16.5",
+    "knex": "^2.4.0",
     "nodemon": "^1.19.0",
     "sqlite3": "^4.0.8",
     "superagent": "^5.0.5",
